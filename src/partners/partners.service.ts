@@ -9,6 +9,11 @@ export class PartnersService {
 
 
     async getPartners(): Promise<Partner[]> {
+      try{
          return this.partnerModel.find().exec();
+      }
+      catch(error){
+        throw error
+      }
        }
 }

@@ -3,7 +3,7 @@ import mongoose, { Document } from 'mongoose';
 
 @Schema({ timestamps: true })
 export class Leave extends Document {
-  @Prop({ required: true })
+  @Prop({ required: true, ref:'patners' })
   partnerId: mongoose.Types.ObjectId;
 
   @Prop({ required: true })

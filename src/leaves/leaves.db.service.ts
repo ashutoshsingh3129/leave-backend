@@ -14,7 +14,7 @@ export class LeavesDbService {
       return leave.save();
     }
     catch (error) {
-      return error
+      throw error
     }
   }
 
@@ -39,7 +39,7 @@ export class LeavesDbService {
     }
     catch (error) {
       console.log(error)
-      return error
+      throw error
     }
   }
 
@@ -48,7 +48,7 @@ export class LeavesDbService {
       return this.leaveModel.findByIdAndUpdate(id, updateDto, { new: true });
     }
     catch (error) {
-      return error
+      throw error
     }
   }
   async delete(id: string): Promise<Leave> {
@@ -56,7 +56,9 @@ export class LeavesDbService {
       return this.leaveModel.findByIdAndDelete(id);
     }
     catch (error) {
-      return error
+      throw error
     }
   }
+ 
+
 }

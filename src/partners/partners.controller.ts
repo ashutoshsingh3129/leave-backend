@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, HttpException, HttpStatus } from '@nestjs/common';
 import { PartnersService } from './partners.service';
 
 @Controller('partners')
@@ -9,8 +9,16 @@ export class PartnersController {
 
     @Get()
   async getPartners() {
+    try{
     const data = await this.partnersService.getPartners();
-    console.log("dd",data)
     return { statusCode: 200, data, error: null, message: 'Leaves fetched successfully' };
+  } catch (error) {
+    throw new HttpException({
+      statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+      data: null,
+      error: error.message,
+      message: 'Error fetching leaves',
+    }, HttpStatus.INTERNAL_SERVER_ERROR);
+  }
   }
 }
