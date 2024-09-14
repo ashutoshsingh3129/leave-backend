@@ -58,5 +58,4 @@ export class LeavesService {
     return this.leavesDbService.delete(id);
   }
  
-
 }

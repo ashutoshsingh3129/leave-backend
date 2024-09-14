@@ -1,4 +1,3 @@
-// walkers.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -16,15 +15,15 @@ export class WalkersService {
     return this.walkerModel.aggregate([
         {
           $lookup: {
-            from: "timeSlots", // The collection containing time slot data
-            localField: "_id", // Field from the walkers collection
-            foreignField: "walker", // Field from the timeSlots collection
-            as: "timeSlots" // Name of the field to append the matched data
+            from: "timeSlots", 
+            localField: "_id", 
+            foreignField: "walker", 
+            as: "timeSlots" 
           }
         },
         {
           $match: {
-            "timeSlots.date": "2024-09-14" // Match by specific date
+            "timeSlots.date": "2024-09-14" 
           }
         },
         {

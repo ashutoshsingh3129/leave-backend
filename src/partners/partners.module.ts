@@ -7,7 +7,7 @@ import { PartnersService } from './partners.service';
 @Module({
   imports: [
     MongooseModule.forFeature([
-      { name: Partner.name, schema: PartnerSchema },  // Register Leave model
+      { name: Partner.name, schema: PartnerSchema }, 
     ]),
   ],
   providers:[PartnersService],

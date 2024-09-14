@@ -7,11 +7,10 @@ import { WalkerModule } from './walker/walker.module';
 
 @Module({
   imports: [
-    // Load environment variables
+
     ConfigModule.forRoot({
-      isGlobal: true, // Makes the configuration available globally
+      isGlobal: true,
     }),
-    // Connect to MongoDB using environment variables
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],

@@ -1,4 +1,3 @@
-// walkers.controller.ts
 import { Controller, Get, HttpException, HttpStatus, Param, Query } from '@nestjs/common';
 import { WalkersService } from './walker.service';
 
@@ -10,14 +9,14 @@ export class WalkersController {
   async getWalkers(@Query('date') date: string) {
     try{
     const data=await this.walkersService.getWalkersWithSlots(date);
-    return { statusCode: 200, data, error: null, message: 'Leaves fetched successfully' };
+    return { statusCode: 200, data, error: null, message: 'Walkers fetched successfully' };
 
 } catch (error) {
     throw new HttpException({
       statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
       data: null,
       error: error.message,
-      message: 'Error fetching leaves',
+      message: 'Error fetching walkers',
     }, HttpStatus.INTERNAL_SERVER_ERROR);
 }
 }
@@ -25,7 +24,7 @@ export class WalkersController {
   async getWalkerSlots(@Param('id') walkerId: string) {
     try{
         const data=await this.walkersService.getWalkerSlots(walkerId);
-        return { statusCode: 200, data, error: null, message: 'Leaves fetched successfully' };
+        return { statusCode: 200, data, error: null, message: 'walker slot fetched successfully' };
     
     } catch (error) {
         throw new HttpException({

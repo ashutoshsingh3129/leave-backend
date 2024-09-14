@@ -11,7 +11,7 @@ export class PartnersController {
   async getPartners() {
     try{
     const data = await this.partnersService.getPartners();
-    return { statusCode: 200, data, error: null, message: 'Leaves fetched successfully' };
+    return { statusCode: 200, data, error: null, message: 'Partner fetched successfully' };
   } catch (error) {
     throw new HttpException({
       statusCode: HttpStatus.INTERNAL_SERVER_ERROR,

@@ -1,4 +1,3 @@
-// leaves.module.ts
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { LeavesService } from './leaves.service';
@@ -9,7 +8,7 @@ import { LeavesDbService } from './leaves.db.service';
 @Module({
   imports: [
     MongooseModule.forFeature([
-      { name: Leave.name, schema: LeaveSchema },  // Register Leave model
+      { name: Leave.name, schema: LeaveSchema },  
     ]),
   ],
   controllers: [LeavesController],

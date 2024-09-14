@@ -5,15 +5,15 @@ import { Model } from 'mongoose';
 
 @Injectable()
 export class PartnersService {
-    constructor(@InjectModel(Partner.name) private partnerModel: Model<Partner>){}
+  constructor(@InjectModel(Partner.name) private partnerModel: Model<Partner>) { }
 
 
-    async getPartners(): Promise<Partner[]> {
-      try{
-         return this.partnerModel.find().exec();
-      }
-      catch(error){
-        throw error
-      }
-       }
+  async getPartners(): Promise<Partner[]> {
+    try {
+      return this.partnerModel.find().exec();
+    }
+    catch (error) {
+      throw error
+    }
+  }
 }
